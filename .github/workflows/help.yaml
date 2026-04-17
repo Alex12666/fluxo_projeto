@@ -1,0 +1,18 @@
+name: meu primeiro fluxo de teste com git action
+
+on: [push]
+
+
+jobs:
+  verificacao:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalando Testador
+        run: pip install pytest
+      - name: Verificando Codigo
+        run: pytest test_app.py
